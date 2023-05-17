@@ -1,38 +1,132 @@
-.App {
-  text-align: center;
+/* General  */
+:root{
+  --bg: #242526;
+  --bg-accent: #48414d;
+  --text-color: white;
+  --nav-size: 100px;
+  --border: 1px solid #47414d;
+  --border-radius: 8px;
+  --speed: 500ms
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul{
+  list-style: none;
+  margin:0;
+  padding:0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* NavBar  */
+a{
+  color: rgb(110, 25, 117);
+  text-decoration: none;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar{
+  position: fixed;
+  width: 100%;
+  height: var(--nav-size);
+  background-color: transparent;
+  
+}
+.navbar-elements{
+  max-width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
+}
+.navbar-item{
+  padding-right: 20px;
+  transition: filter 300ms;
+}
+.dropdown{
+  display: none;
+  position: absolute;
+  top: 60px;
+  width: 100px;
+  transform: translateX(-45%);
+  background-color: transparent;
+  border: (--border);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  overflow: hidden;
+}
+.dropdown-items{
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border: 50px;
+  border-radius: 7px;
+  padding: 10px 0 10px;
+  align-items: center;
+  transition: background 400ms;
+}
+.dropdown:hover{
+  display: block;
+}
+.dropdown-items:hover{
+  background-color: grey
+}
+.navbar-item:hover ~ .dropdown{
+  display: block;
+  
+}
+.navbar-item:hover{
+  filter:brightness(2);
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+ /* Layout */
+
+ .spacer{
+  height: 100px;
+  background-color: white;
+ }
+
+ .container {
+   width: 100%;
+ }
+
+ .ImgDiv{ 
+    background-size: cover;
+    background-image: url("./images/churchPhoto.jpg");
+    top: 150px;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    height: 500px;
+  
+ }
+ .HomePage{
+   text-align: center;
+ }
+
+ .Welcome{
+  
+   position: absolute;
+   top: 150px;
+   color: black;
+   text-align: center;
+   justify-content: center;
+   width: 100%;
+  
+ }
+ .Double{
+   padding: 30px;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+ }
+ .item-1{
+   flex: 1;
+   padding: 10px;
+  
+ }
+ .item-2{
+   flex: 1;
+   padding: 10px;
+ }
+ .img{
+   width: 100%;
+   height: 100%;
+   align-items: stretch;
+   justify-content: center;
+ }

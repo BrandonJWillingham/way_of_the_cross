@@ -2,7 +2,7 @@ import photo from "../images/stock-photo.jpeg"
 
 export default function Welcome(){
     return(
-    <section id="Welcome Layout Reverse">
+    <section>
         <div className="Double">
             <div className="item-1">
                 <div>

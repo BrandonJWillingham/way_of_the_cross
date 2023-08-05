@@ -1,28 +1,28 @@
-import react from "react";
-import {useState, useEffect} from "react-router-dom"
-import Welcome from "./Welcome";
 
+import Welcome from "./Welcome";
+import Footer from "../Nav/Footer";
+import JoinUs from "./JoinUs";
+import EventComponent from "./EventComponent";
+import LocationComponent from "./LocationComponent";
 export default function Layout(){
     return(
         <div className="container">
-            <div className="spacer"/>
-            <div className="ImgDiv">
-                <div className="HomePage Welcome ">
-                    <h1>
-                        Welcome To The Cross
-                    </h1>
-                    <h2>
-                        The way of the cross church located in harlem ny
-                    </h2>
-                </div>
-
+            <div className="ImgDiv"/>
+            <div className="welcome ">
+                <h1>Welcome </h1>
+                <h1> To</h1>
+                <h1 className="cross"> The Cross </h1>
+                <h4> Be Apart of Harlem's Gifted and Blessed </h4>
             </div>
 
 
-
-
-            <Welcome/>
             
+            
+            <JoinUs/>
+            <Welcome/>
+            <LocationComponent/>
+            <EventComponent/>
+            <Footer/>
        </div>
     )
 }

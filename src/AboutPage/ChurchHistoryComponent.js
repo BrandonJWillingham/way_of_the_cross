@@ -5,11 +5,12 @@ import { useEffect } from "react";
 
 
 export default function ChurchHistoryComponent(){
+
     let slideIndex = 0;
  
     useEffect(()=>{
         
-        const changePhoto= setInterval(()=>{
+        const changePhoto = setInterval(()=>{
 
             const elements = document.getElementsByClassName("historySlide")
 
@@ -43,7 +44,7 @@ export default function ChurchHistoryComponent(){
                     <p>
                         Apostle James Pitt, his wife and 5 faithful members, founded Way of the Cross Church 1957.  
                     </p>
-                    <p> Location has been moved from their living room to 1368 boston road store front church and in 1976 found home in harlem at 124-126 w 136th St</p>
+                    <p style={{marginTop:0}}> Location has been moved from their living room to 1368 boston road store front church and in 1976 found home in harlem at 124-126 w 136th St</p>
                 </div>
                 <div className="imgContent">
 

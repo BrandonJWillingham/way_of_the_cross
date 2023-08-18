@@ -24,16 +24,19 @@
 .section{
     justify-content: center;
     display: flex;
+    align-items: center;
     padding-top: 52px;
+    height: 50vh;
 }
  /* church history */
  
 .ChurchHistory{
     justify-content: center;
+    align-items: center;
     display: flex;
     flex-direction: row;
     padding-top: 52px;
-    
+    height: 50vh;
 }
 
 .component{
@@ -74,19 +77,22 @@
     object-fit: fill;
     border-radius: 10px;
     transform: translate(0px, -1px);
-    width: 20vw;
-    height: 225px;
+    width: 25vw;
+    height: 30vh;
 }
 
 .textContent{
     display: flex;
     flex-direction: column;
-    width: 350px;
+    width: 400px;
 }
-.textContent > p,h3{
+.textContent > h3{
     text-align: center;
 }
 
+
+    /* leadership */
+    
 .leadershipContent > img{
     height: 255px;
     width: 28vw;

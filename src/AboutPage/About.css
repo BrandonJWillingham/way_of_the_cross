@@ -1,0 +1,134 @@
+
+
+.aboutHeader {
+    background-image: url(../images/prayer.jpg);
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    align-items: center;
+    height: 40vh;
+    justify-content: center;
+    color: white;
+}
+
+.aboutHeader > div{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.aboutHeader> div > h1{
+    align-self: center;
+}
+.section{
+    justify-content: center;
+    display: flex;
+    padding-top: 52px;
+}
+ /* church history */
+ 
+.ChurchHistory{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    padding-top: 52px;
+    
+}
+
+.component{
+    display: flex;
+    justify-content: space-between;
+    width: 900px;
+    height: fit-content;
+}
+.ChurchHistory > .Content{
+    display: flex;
+    flex-direction: column;
+}
+
+.slideShowContainer{
+    width: 80%;
+    height: 20vh;
+}
+.imgContent{
+    width: 25vw;
+    height: 200px;
+   display: flex;
+}
+
+.historySlide{
+    border-radius: inherit;
+    width: 100%;
+    max-width: 25vw;
+    max-height: 100%;
+}
+
+@keyframes fade {
+    from{opacity: .2;}
+    to {opacity: 1;}
+}
+.historySlide > img {
+    animation-name: fade;
+    animation-duration: 1s;
+    object-fit: fill;
+    border-radius: 10px;
+    transform: translate(0px, -1px);
+    width: 20vw;
+    height: 225px;
+}
+
+.textContent{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+}
+.textContent > p,h3{
+    text-align: center;
+}
+
+.leadershipContent > img{
+    height: 255px;
+    width: 28vw;
+    border-radius: 10px;
+}
+
+.leadershipText{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+.leadershipText > a{
+    display: flex;
+    justify-content: center;
+}
+
+.beliefSection{
+    flex-direction:column;
+    justify-content: center;
+    display: flex;
+    padding-top: 52px;
+}
+.beliefText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text> p{
+    width: 20vw;
+    border-radius: 3px;
+    border: solid;
+    font-size: large;
+}
+.beliefComponent{
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    height: fit-content;
+    justify-content: center;
+}
+.text{
+    display: flex;
+}
+

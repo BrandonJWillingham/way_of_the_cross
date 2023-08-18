@@ -9,10 +9,12 @@ export default function NavBar(){
     }   
     return (
         <section className='navBar'>
-        
+            <a href='/'>
             <div className='image-container'>
                 <img src={logo} alt='way of the cross logo'/>
             </div>
+            </a>
+            
             
             <div className='navSubContainer'>
                 <div className='navItem' onMouseEnter={()=> toggleSubNav("about")} onMouseLeave={()=> toggleSubNav("about")}>
@@ -21,8 +23,10 @@ export default function NavBar(){
                         <p>About us</p>
                         </div>
                         <div id='aboutSubDiv' className='navSubItem'>
-                            <button href='#'>testing</button>
-                            <button href='#'>test 2</button>
+                            <a href='about'><button >About</button></a>
+                            <a href='/belief'><button >Our Belief</button> </a>
+                            <a href='/leadership'><button >Our Leadership</button> </a>
+                            
                         </div>
                     </div>
                     
@@ -34,7 +38,8 @@ export default function NavBar(){
                             <p>Events</p>
                         </div>
                         <div id='eventsSubDiv'className='navSubItem'>
-                            <button href='#'>testing</button>
+                            <a href='/events' ><button> Calendar</button> </a>
+                            
                         </div>
                     </div>
                     
@@ -46,7 +51,8 @@ export default function NavBar(){
                         <p> Watch</p>
                         </div>
                         <div id='watchSubDiv' className='navSubItem'>
-                            <button href='#'> <p>test</p> </button>  
+                            <a href='/stream'><button > <p>watch online</p> </button>  </a>
+                            
                         </div>
                     </div>
                 </div> 

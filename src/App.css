@@ -22,7 +22,9 @@ ul{
     position: fixed;
     display: flex;
     /* flex-direction: row; */
-    background-color: #ded7cd;
+    /* background-color: #ded7cdFF; */
+    /* background-color: transparent; */
+    /* background-color: #ded7cd; */
     transition: .4s;
   }
 
@@ -51,7 +53,7 @@ ul{
     display: flex;
     flex-direction: column;
     position: absolute;
-    background-color: #ded7cd;
+    /* background-color: #ded7cd; */
     width: 100px;
     opacity: 0%;
     visibility: hidden;

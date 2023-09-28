@@ -7,6 +7,7 @@ export default function BeliefComponent (){
             <div className="beliefComponent">
                 <h2 style={{justifyContent:"center",display:"flex"}}> Our Belief</h2>
                 <div className="beliefText">
+                    
                     <AnimationOnScroll animateIn="animate__backInLeft">
                         <div className="text">
                             <p>One God</p>

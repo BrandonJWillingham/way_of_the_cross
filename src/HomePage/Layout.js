@@ -1,14 +1,14 @@
 
 import Welcome from "./Welcome";
-import Footer from "../Nav/Footer";
 import JoinUs from "./JoinUs";
 import EventComponent from "./EventComponent";
 import LocationComponent from "./LocationComponent";
 export default function Layout(){
     return(
-        <div className="container">
+        <div className="">
             <div className="ImgDiv"/>
-            <div className="welcome ">
+
+            <div className="welcome">
                 <h1>Welcome </h1>
                 <h1> To</h1>
                 <h1 className="cross"> The Cross </h1>
@@ -17,12 +17,13 @@ export default function Layout(){
 
 
             
+            <section className="webEdge" >
+                <JoinUs/>
+                <Welcome/>
+                <LocationComponent/>
+                <EventComponent/> 
+            </section>
             
-            <JoinUs/>
-            <Welcome/>
-            <LocationComponent/>
-            <EventComponent/>
-            <Footer/>
        </div>
     )
 }

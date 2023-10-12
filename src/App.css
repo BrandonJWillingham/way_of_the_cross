@@ -21,15 +21,12 @@ ul{
     width: 100%;
     position: fixed;
     display: flex;
-    /* flex-direction: row; */
-    /* background-color: #ded7cdFF; */
-    /* background-color: transparent; */
-    /* background-color: #ded7cd; */
     transition: .4s;
   }
 
   .navItem{
-    padding: 0px 18px 0px 18px;
+    padding: 0px 30px 0px 30px;
+    background-color: inherit;
     height: fit-content;
   } 
   .navItem:hover{
@@ -53,12 +50,16 @@ ul{
     display: flex;
     flex-direction: column;
     position: absolute;
-    /* background-color: #ded7cd; */
+    background-color: inherit;
     width: 100px;
     opacity: 0%;
+    border-radius: 0px 0px 7px 7px;
     visibility: hidden;
     transition: all .35s;
     transform: translateY(-40%);
+  }
+  .navSubItem a{
+    padding: 2.5px 0px 2.5px 0px
   }
   #aboutSubDiv{
     translate:-10px
@@ -70,11 +71,12 @@ ul{
   .navSubItem button{
     outline: none;
     border: none;
+    text-decoration: none;
     background-color: inherit;
     position: relative;
     font-size: 16px;
     color:#59769e;
-    padding: 5px 25px 5px 25px;
+    padding: 5px 0px 5px 0px;
 
   }
   .navSubItem button:hover{
@@ -124,9 +126,6 @@ ul{
     border-color:rgb(124, 106, 83);
   }
   
- .container {
-   width: 100%;
- }
 
  .ImgDiv{ 
   background-attachment: fixed;
@@ -245,8 +244,16 @@ ul{
     height: 50px;
     display:flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
   }
   .reach p{
     margin:0;
   }
+
+.hero{
+  height: 70vh;
+}
+.webEdge{
+  margin-right: 10vw;
+  margin-left: 10vw 
+}

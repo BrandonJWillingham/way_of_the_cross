@@ -9,7 +9,7 @@ import { faCopyright} from "@fortawesome/free-solid-svg-icons";
 export default function Footer(){
 
     return (
-        <section className="footer">
+        <section className="footer" style={{paddingBottom:20}}>
             <div className="logoSection">
 
                 <div className="footerLogo">
@@ -41,10 +41,10 @@ export default function Footer(){
                 <div className="reach" style={{color:"#ffffff", width:"25%"}}>
                     <h3 style={{marginBottom:0}}>Reach</h3>
                     <hr/>
-                    <a><p>Contact</p></a>
-                    <a><p>Ask For Prayer</p></a>
-                    <a><p>Fellowship</p></a>
-                    <a><p>Community</p></a>
+                    {/* <a className="flex" style={{justifyContent:"flex-start", paddingTop:5}}><p>Contact</p></a> */}
+                    <a className="flex" style={{justifyContent:"flex-start", paddingTop:5}}><p>Ask For Prayer</p></a>
+                    <a className="flex" style={{justifyContent:"flex-start", paddingTop:5}}><p>Our Fellowship</p></a>
+                    <a className="flex" style={{justifyContent:"flex-start", paddingTop:5}}><p>The Community</p></a>
                 </div>
             </div>
             

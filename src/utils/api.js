@@ -30,4 +30,3 @@ export async function listEvents(date,signal){
     url.searchParams.append("date", date)
     return await fetchJson(url,{headers,signal},[])
 }
-

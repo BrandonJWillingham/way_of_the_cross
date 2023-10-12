@@ -39,57 +39,38 @@ export default function EventsLayout() {
     let newposition = 0
     
     const changeToMonth =()=>{
+        setPosition(0)
         setViewWeek(false)
     }
 
     const changeToWeek = ()=>{
         setViewWeek(true)
     }
-    const showRightDiv=()=>{
-        console.log("called show right", newposition)
-        if (newposition <= -360){
-            newposition = 0
-            document.querySelector(".weeklyView").style.display = "block"
-        }
-        else{
-            let index = newposition/(360/week.length)
-            index < 0? index*=-1:index=index;
-            document.querySelectorAll(".weeklyView")[index].style.display = "block"
-        }
-    }
 
-    const showLeftDiv =()=>{
-        console.log("called show left", newposition)
-        if (newposition >= 360 || newposition == 0){
-            newposition = 0
-            document.querySelector(".weeklyView").style.display = "block"
-        }else{
-            let index = newposition/(360/week.length) 
-            index < 0 ? index = week.length-(index * -1) : index = week.length - index 
-            console.log("index in show left: ", index)
-            if(index<0) index *= -1
-            document.querySelectorAll(".weeklyView")[index].style.display = "block"
-            hideDiv(index+1)
-        }
-    }
-    const hideDiv =(index)=>{
-        document.querySelectorAll(".weeklyView")[index].style.display = "none"
-    }
     const handleLeftClick=()=>{
-        const doct= document.querySelector(".listed")
+        console.log("start of left click\nposition:", position,"\nnewposition",newposition)
         const distance = 360 / week.length
-        newposition += distance
-        console.log("position: ",newposition)
-        showLeftDiv()
-        doct.style.transform = `perspective(1000px) rotateY(${newposition}deg)`
+        const newPosition = position + distance
+        const doct= document.querySelector(".listed")
+        newposition += distance 
+        if(position >= (360-distance)){
+            setPosition(0)
+        }else{
+          setPosition(newPosition)  
+        }
+        doct.style.transform = `perspective(2000px) rotateY(${newPosition}deg)`
+        console.log("end of left click\nposition:", position,"\nnewposition",newPosition)
     }
     const handleRightClick=()=>{
         const doct= document.querySelector(".listed")
         const distance = 360 / week.length
-        newposition -= distance
-        console.log("position: ", newposition)
-        showRightDiv()
-        doct.style.transform = `perspective(1000px) rotateY(${newposition}deg)`
+        const newPosition = position - distance
+        if(newPosition <= -360){
+            setPosition(0)
+        }else{
+          setPosition(newPosition)  
+        }
+        doct.style.transform = `perspective(2000px) rotateY(${newPosition}deg)`
     }
 
     useEffect(()=>{
@@ -113,16 +94,34 @@ export default function EventsLayout() {
     }
 
     const selectedWeek =(events)=>{
-
         // work on util function that adds 7 days and sends back properstring 
         let limitArr = date.split("-").map(element => parseInt(element))
         limitArr[2] += 7 
         let limit = `${limitArr[0]}-0${limitArr[1]}-${limitArr[2]}`
         
         let beforeDate = events.filter((event)=> {
-            return limit > event.date
+            return limit >= event.date
         })
-        return beforeDate.filter((event)=> event.date > date)
+        return beforeDate.filter((event)=> event.date >= date)
+    }
+
+    const activeDotLogic = (index)=>{
+        if(index == position) return "black"
+        if(position < 0){
+            if(Math.abs(position) == index*360/week.length) return "black"
+            return ""
+        }else{
+            if(position == 360 - (index*360/week.length)) return "black"
+            return ""
+        }
+    }
+
+    const dotClick = (index,event)=>{
+        event.preventDefault()
+        const newPosition = (index*360*-1/week.length)
+        setPosition(newPosition)
+        const doct= document.querySelector(".listed")
+        doct.style.transform = `perspective(2000px) rotateY(${newPosition}deg)`
     }
 
     return (
@@ -133,33 +132,38 @@ export default function EventsLayout() {
                 <p> some following up smaller header text</p>
             </div>
             
-            <div className="viewSwitch">
-                <button onClick={changeToWeek}>
+            <div className="flex contentCenter">
+                <div className="viewSwitch flex ">
+                  <button className="hvrBtn" onClick={changeToWeek}>
                     {/* when active, bolded */}
                     <p>Week</p>
                 </button>
-                <button onClick={changeToMonth}>
+                <button className="hvrBtn" onClick={changeToMonth}>
                     <p>Month</p>
-                </button>
+                </button>  
+                </div>
+                
             </div>
 
-            <div className="view">
-                {/* swap week */}
-                <div>
-                    <button onClick={handleLeftClick}>
+
+            {viewWeek && week && <div className="view">
+                {/* swap day */}
+                <div style={{justifyContent:"center"}}className="flex">
+                    <button style={{transform:"rotate(180deg)",margin:"10px"}} className="gg-arrow-right-o"onClick={handleLeftClick}>
                         {/* left arrow */}
                     </button>
 
-                    <button onClick={handleRightClick}>
+                        {week.map((i,index)=><span onClick={(event)=>dotClick(index,event)} style={{marginRight:"5px",marginLeft:"5px",alignSelf:"center",backgroundColor:`${activeDotLogic(index)}`}} className="dot"/>)}
+
+                    <button style={{margin:"10px"}}className="gg-arrow-right-o" onClick={handleRightClick}>
                         {/* right arrow */}
                     </button>
                 </div>
-                <ul>{}</ul>
-                {/* {weekView ? <EventsWeek events={events}/> : <EventsMonth events={events}/> } */}
-                {viewWeek && week && <EventsWeek events={week} viewWeek={viewWeek}/>}
-                {!viewWeek && events && <EventsMonth events={events} date={date} />}
-            </div>
-
+                
+                {<EventsWeek events={week} viewWeek={viewWeek} position={position}/>}
+                
+            </div>}
+            {!viewWeek && events && <EventsMonth events={events} date={date} viewWeek={viewWeek} />}
         </section>
     )
 }

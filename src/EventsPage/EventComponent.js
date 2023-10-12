@@ -1,10 +1,9 @@
-export default function EventComponent({event,resetDate,viewWeek,index,length}){
+export default function EventComponent({event,resetDate,viewWeek,index,length,position}){
 
     // const style = {"--index": index} as React.CSSProperties
     const stopProp = (e)=>{
         e.stopPropagation()
     }
-
     const dayOfWeek={
         0:"Sunday",
         1:"Monday",
@@ -53,10 +52,25 @@ export default function EventComponent({event,resetDate,viewWeek,index,length}){
     }
 
     const date = new Date(event.date.replace(/-/g,"\/"))
+    // console.log(Math.abs(index*360/length))
 
+    const showDiv = ()=>{
+        console.log(viewWeek)
+        if(viewWeek == undefined || viewWeek == false) return ""
+        if(position < 0){
+            if(Math.abs(position) == index*360/length) return "3"
+            return "hide 1"
+        }else if(position > 0){
+            if(position == (360 - (index*360/length))) return "4"
+            return "hide 2"
+        }else{
+            if(index == 0 || position == 360) return "5"
+            return "hide 6"
+        }
+    }
 
     return(
-        <div style={{"--index":index,"--length":length}} onClick={(event)=>stopProp(event)}key={Math.random()*10000} className={`event blackText ${viewWeek? "weeklyView hide":""}`}>
+        <div style={{"--index":index,"--length":length}} onClick={(event)=>stopProp(event)}key={Math.random()*10000} className={`event blackText ${viewWeek? "weeklyView ":""} ${ showDiv()}`}>
             <div>
                 <div className="flex space-between background">
                     <h3 className="flex col">

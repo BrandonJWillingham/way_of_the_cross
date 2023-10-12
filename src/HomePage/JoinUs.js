@@ -2,7 +2,7 @@ export default function JoinUs(){
 
 
     return(
-        <section className="joinSection" style={{display:"flex", justifyContent:"center",backgroundColor:"#544e45"}}>
+        <section className="joinSection flex contentCenter" style={{margin:"50px 0px 50px 0px",display:"flex", justifyContent:"center",backgroundColor:"#544e45",height:"50vh"}}>
             <div>
                 <h3 style={{fontSize:"2.52rem", margin:20, color:"white"}}> COME DOWN TO SERVICE</h3>
                 <div>
